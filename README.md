@@ -44,6 +44,10 @@ Steps are as follows.
 
 6. Splitting the data using train_test_split using sklearn.model_selection library in 80/20 ratio 
 
+## Fitting the model 
+
+We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. We will test it on the test data and then will check on the unknow question and see its performance 
+
 
 
 
