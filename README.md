@@ -48,8 +48,19 @@ Steps are as follows.
 
 We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. We will test it on the test data and then will check on the unknow question and see its performance 
 
+Fitting the model and then predicting the f1 score using the test data, we got a score of 0.46 which is ok, if we set the theshold of 0.45
+
+## Results
+
+If we predict on the first three questions, we get the following 
+
+![4](https://user-images.githubusercontent.com/36281158/86500082-52d5f680-bdac-11ea-9a2e-1790611bdf27.PNG)
 
 
+
+In above, if we apply inverse transform for multibinarizer, we will get the required tags below for the first three questions, as all the tags are represented by an array of size 100* 1 
+
+[('prediction',), ('distributions', 'mean', 'variance'), ('r',)]
 
 
 
