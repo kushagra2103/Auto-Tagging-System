@@ -23,3 +23,31 @@ It is defined as ratio of true positives by (true positives + false negatives)
 
 #### F1 Score = 2* Precision * Recall / (Precision + Recall) 
 
+## Text Cleaning and Pre Processing
+
+First major step is to clean the data. It contains variou html and urls links, punctuations, single letter alphabets and stopwords which dosent convey much information regarding what topics they are related to. 
+
+Steps are as follows.
+
+1. Combining the title and text part of our dataset.
+
+2. Removing all the punctuations, alphabets through the regex and white spaces and stopwords 
+
+3. Finally lowercasing all the words present in the text. 
+
+![3](https://user-images.githubusercontent.com/36281158/86495256-71e17380-bd2d-11ea-870c-e8ea1a0bc636.PNG)
+
+
+4. Reshaping our target variable(tag). Since they are 100 , we will be apply MultiLableBinarizer for sckit learn library. 100 columns more will be more in palce of one.
+
+5. Applying Tfidf vectorizer over the text_cleaned part of our dataset having max_features= 10000 (keping only 10000 top words) and max_df=0.8 (words appearing in more than 80 % of text are removed)
+
+6. Splitting the data using train_test_split using sklearn.model_selection library in 80/20 ratio 
+
+
+
+
+
+
+
+
