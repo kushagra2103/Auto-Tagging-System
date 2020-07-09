@@ -48,7 +48,25 @@ Steps are as follows.
 
 ### TFIDF: Term frequency and Inverse Document Frequency 
 
+Tf-Idf stands for term frequency inverse document frequency. Term Frequency summarizes how often a given word appears within a document and Inverse Document Frequency downscales words that appear a lot across documents. Tfidf scores are the product of these two terms. Without inverse document term, words which appear more common (that carries little information) would be weighed higher and words appearing rare(which contains more information) would be weighed less.
 
+Inverse document frequency is defined as:
+
+idf(t,D)=log (N/ |d∈D:t∈d|)
+
+Where N is the total number of documents (questions) in the corpus, and |d∈D:t∈d| is the number of documents where t appears
+
+A vecotizer object is created by calling the TfidfVectorizer class. Some arguments for it are as follows.
+
+max_features = 1000, it meanns we want only 1000 words to decribe the context of the given question 
+
+max_df= 0.8, it means removing those words which have appeared in more than 80 % of the questions
+
+Tfidf matrix has a shape of 76365* 1000 where 76365 is the number of the questions and 1000 is the number of features describing that question. 
+
+![1](https://user-images.githubusercontent.com/36281158/87052266-3576b180-c21e-11ea-9c8b-439a8dae8658.PNG)
+
+In the above snapshot the maxtrix , values address the importance of the word to that question. High value means more importance
 
 
 ### Word2Vec
