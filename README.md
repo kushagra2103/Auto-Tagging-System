@@ -40,9 +40,20 @@ Steps are as follows.
 
 4. Reshaping our target variable(tag). Since they are 100 , we will be apply MultiLableBinarizer for sckit learn library. 100 columns more will be more in palce of one.
 
-5. Applying Tfidf vectorizer over the text_cleaned part of our dataset having max_features= 10000 (keping only 10000 top words) and max_df=0.8 (words appearing in more than 80 % of text are removed)
+5. Applying Tfidf vectorizer over the text_cleaned part of our dataset having max_features= 10000 (keping only 10000 top words) and max_df=0.8 (words appearing in more than 80 % of text are removed) and Word2Vec model (keeping number of features = 100 initially and then varying) for feature engineering 
 
-6. Splitting the data using train_test_split using sklearn.model_selection library in 80/20 ratio 
+6. Splitting the data using train_test_split using sklearn.model_selection library in 80/20 ratio and then using the logistic regression for prediction. 
+
+## Feature Engineering 
+
+### TFIDF: Term frequency and Inverse Document Frequency 
+
+
+
+
+### Word2Vec
+
+
 
 ## Fitting the model 
 
