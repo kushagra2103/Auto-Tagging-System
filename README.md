@@ -71,7 +71,23 @@ In the above snapshot the maxtrix , value address the importance of the word to 
 
 ### Word2Vec Word Embeddings 
 
-Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space
+Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space. There are two models for generating the embeddings, CBOW(Continous Bag of words) and skip gram model. CBOW is used for small corpus, it is fast but for larger corpus skip gram is better, takes a little more time than CBOW. Here skip gram is used, below its explanation.
+
+#### Skip Gram 
+It is used to get the word embeddings matrix for the words present in our corpus. It tries to predict the context given the word. So given the window size of 2, two words before and two after are predicted for the given word. 
+
+![2](https://user-images.githubusercontent.com/36281158/87121435-5bdd3100-c2a0-11ea-9794-2ef4b3d8cb0a.PNG)
+
+Skip Gram is a two layer network where the weight matrix of the hidden layer is calculated. First the vocabulary is contructed where each unique word in the corpus is indexed. Then all the words are one-hot encoded. Training examples are created as depicted below. Pairs are selected for each word given window size is 2. For a given word, 4 pairs will exits. If there is suppose 10,000 words vocabulary and 300 features, then given word is taken as an input to the network and output is output is a 10000 * 1 matrix where it contains probability values of all the words in vocab. So for each training example , corresponding words for the "given input word", their probablity values should be maximized and due to backpropogation , errors are minimzed and weights are updated. In the end, weight matrix obatained for the hidden layer (10,000 * 300) is the embedding matrix. This matrix is based on statistics on how much two words have appeared together or are close in the corpus. One close to the given word will have high probability values and one far away will have low probability value. To get the embedding of the given word, just multiply the one hot encoding vector of it with the hidden matrix layer.  
+
+![5](https://user-images.githubusercontent.com/36281158/87122809-37cf1f00-c2a3-11ea-9ee2-305bc642abc8.PNG)
+
+![3](https://user-images.githubusercontent.com/36281158/87121532-8e872980-c2a0-11ea-89f5-41bc2228cbd2.PNG)
+
+![3](https://user-images.githubusercontent.com/36281158/87122794-330a6b00-c2a3-11ea-83e7-aaebf252dfb5.PNG)
+
+![4](https://user-images.githubusercontent.com/36281158/87122804-36055b80-c2a3-11ea-9079-1c5574eb3a98.PNG)
+
 
 ## Fitting the model 
 
