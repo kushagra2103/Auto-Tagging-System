@@ -84,8 +84,6 @@ Skip Gram is a two layer network where the weight matrix of the hidden layer is 
 
 ![3](https://user-images.githubusercontent.com/36281158/87121532-8e872980-c2a0-11ea-89f5-41bc2228cbd2.PNG)
 
-![3](https://user-images.githubusercontent.com/36281158/87122794-330a6b00-c2a3-11ea-83e7-aaebf252dfb5.PNG)
-
 ![4](https://user-images.githubusercontent.com/36281158/87122804-36055b80-c2a3-11ea-9079-1c5574eb3a98.PNG)
 
 
