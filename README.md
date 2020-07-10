@@ -86,6 +86,10 @@ Skip Gram is a two layer network where the weight matrix of the hidden layer is 
 
 ![4](https://user-images.githubusercontent.com/36281158/87122804-36055b80-c2a3-11ea-9079-1c5574eb3a98.PNG)
 
+Here, the number of features have been tweaked from 50 to 500 to see the change in the accuracy. Word2Vec model is being trained on the corpus of ~59000 words using the "Gensim" library. Also for the words, "value", "stastitics", "algorithm" are plotted in a 2D space (being 100 dimensional vectors) using PCA dimesionality reduction technique. Below is the projection. 
+
+![6](https://user-images.githubusercontent.com/36281158/87123485-73b6b400-c2a4-11ea-93c0-cd5a77cf050f.PNG)
+
 
 ## Fitting the model 
 
