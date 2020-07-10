@@ -93,9 +93,12 @@ Here, the number of features have been tweaked from 50 to 500 to see the change 
 
 ## Fitting the model 
 
-We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. We will test it on the test data and then will check on the unknow question and see its performance 
+We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. W
 
-Fitting the model and then predicting the f1 score using the test data, we got a score of 0.46 which is ok, if we set the theshold of 0.45
+### Using the TFIDF model 
+
+
+### Using the Word2Vec model 
 
 ## Results
 
