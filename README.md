@@ -104,6 +104,17 @@ Here, i have tweaked the number of features; 50-500, values and their scores as 
 ![7](https://user-images.githubusercontent.com/36281158/87214897-681fc780-c34e-11ea-90f9-cbf138bf9724.PNG)
 
 
+Tried Gaussian Naive byes algorithm for both the above models but it was giving very poor results. 
+
+Some further improvements which may improve the score as follows.
+
+1. More Training data 
+
+2. For Word2Vec model, negative sampling appraoch can be taken as it will reduce the computation time (as it takes into account less number of training examples)
+
+3. Trying different classification algorithms for multi label classification 
+
+
 
 
 
