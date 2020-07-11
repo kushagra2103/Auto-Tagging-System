@@ -112,8 +112,12 @@ Some further improvements which may improve the score as follows.
 
 2. For Word2Vec model, negative sampling appraoch can be taken as it will reduce the computation time (as it takes into account less number of training examples)
 
-3. Trying different classification algorithms for multi label classification 
+3. Using pre trained word embeddings  
 
+4. Trying different classification algorithms for multi label classification 
+
+
+## Using CNN based Deep Learning model 
 
 
 
