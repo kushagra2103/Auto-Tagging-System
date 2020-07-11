@@ -93,24 +93,19 @@ Here, the number of features have been tweaked from 50 to 500 to see the change 
 
 ## Fitting the model 
 
-We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. W
+We will use the OneVsRestclassifier model (with logistic regression in it ) to fit over the training data as it calculates over the 100 tags simultaneously. Also the words having probabilities > 0.45 have been assigned 1 and 0 vice cersa. 
 
 ### Using the TFIDF model 
-
+F1 score comes out to be 0.45. On changing the max features, score dosent seems to change much. 
 
 ### Using the Word2Vec model 
+Here, i have tweaked the number of features; 50-500, values and their scores as follows, (50,100,300,500) -> (0.32,0.36,0.41,0.42). Plotting the graph we can see that increasing it further would not improve the score much. 
 
-## Results
-
-If we predict on the first three questions, we get the following 
-
-![4](https://user-images.githubusercontent.com/36281158/86500082-52d5f680-bdac-11ea-9a2e-1790611bdf27.PNG)
+![7](https://user-images.githubusercontent.com/36281158/87214897-681fc780-c34e-11ea-90f9-cbf138bf9724.PNG)
 
 
 
-In above, if we apply inverse transform for multibinarizer, we will get the required tags below for the first three questions, as all the tags are represented by an array of size 100* 1 
 
-[('prediction',), ('distributions', 'mean', 'variance'), ('r',)]
 
 
 
