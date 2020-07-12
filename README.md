@@ -117,7 +117,7 @@ Some further improvements which may improve the score as follows.
 4. Trying different classification algorithms for multi label classification 
 
 
-## Using CNN based Deep Learning model 
+## Using CNN based Deep Learning model
 
 
 
