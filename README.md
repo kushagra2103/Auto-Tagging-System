@@ -134,7 +134,14 @@ The sentence shown " I like this movie very much !" is passed through an embeddi
 
 ###### 1. Embedding Layer 
 
+First the documents (text) in our data are being tokenized. Then the input lenght is defined. Padding is a procedure where if a document size is less than input length defined, then it is padded to get it the same length as that of defined one. For documents having the size greater than the input length , they are trimmed. Now with having the input length defined, all the sequences are fed to the embedding layer. Here we can choose what dimensions our output can have, generally it is choosen between 64, 128, 256, 512. When all the sequences are fed, word embeddings are generated. Parameters to this layer is lenght of the vocabulary (number of the unique words), output dimension and input length.
+
+Total number of trainable parameters are calculated as ((filter size * output dimension * previous filter size)+1) * number of filters. To reduce overfitting, a dropout rate is applied having 0 learning parameter
+
 ###### 2. Conv1D layer 
+
+Here the filter are applied over the output from the embedding layer. Te 
+
 
 ###### 3. GLobal Max Pool 1D
 
