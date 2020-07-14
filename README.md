@@ -148,8 +148,7 @@ Max pooling is applied. For every filter, we will get one value, so its size wil
 
 ###### 4. Dense Layer 
 
-
-Now 
+Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let number of neurons in dense layer is n and output matrix having shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * n.
 
 
 
