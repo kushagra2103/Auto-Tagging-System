@@ -6,7 +6,7 @@ The project deals with how to develop tags for the given text. For example, on a
 
 ![1](https://user-images.githubusercontent.com/36281158/86476020-95d79180-bcfa-11ea-8da5-dfbdbb15916a.PNG)
 
-In the above picture , we can see the title, description and tags. Through tags, we can have an idea what the question is about.The tags and number of tags can be different for different texts. In this project we will build an auto tagging system that will automatically generate the tags for the given texts.  
+In the above picture , we can see the title, description and tags. Through tags, we can have an idea what the question is about.The tags and number of tags can be different for different texts. In this project we will build an auto tagging system that will automatically generate the tags for the given texts. It is a mulitlabel classification problem.  
 
 
 ## Dataset 
@@ -118,6 +118,24 @@ Some further improvements which may improve the score as follows.
 
 
 ## Using CNN based Deep Learning model
+
+Theory Behind the CNN based architecture for classification
+
+Here is the short description of how the 1D convulation network is used for text classification
+
+Below is the structure of the CNN based deep learning structure 
+
+Embedding layer
+
+Conv1D layer 
+
+GlobalMax Pooling 
+
+Dense Layer 
+
+![8](https://user-images.githubusercontent.com/36281158/87391788-028b3f80-c5c9-11ea-95d1-a7df68cc11ba.PNG)
+
+
 
 
 
