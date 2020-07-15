@@ -144,11 +144,11 @@ Here the filters are applied over the output from the embedding layer. The numbe
 
 ###### 3. GLobal Max Pool 1D
 
-Max pooling is applied. For every filter, we will get one value, so its size will be (number of filters * 1). No learning parameters are used.  
+Max pooling is applied. For every filter, we will get one value which will be the maximum one among the all, so its size will be (number of filters * 1). No learning parameters are used.  
 
 ###### 4. Dense Layer 
 
-Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let number of neurons in dense layer is n and output matrix having shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * n.
+Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let say the number of neurons in dense layer is n and output matrix from previous step have shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * n.
 
 
 
