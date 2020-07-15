@@ -166,9 +166,21 @@ Steps:
 
 ![11](https://user-images.githubusercontent.com/36281158/87498197-d3320c80-c674-11ea-9996-af8e1369f1b3.PNG)
 
-Lenght of our vocab comes out to be 81957. 
+  Lenght of our vocab comes out to be 81957. 
 
-2. 
+2. After tokenization, we will define the input length for the embedding layer. Here we will calculate the length at variosu percentiles. Input length of 125 is chosen. We can change if we want. Then after defining the input lenght , we will pad the sequences
+
+Percentile v/s Length
+
+30th percentile:  97.0
+40th percentile:  116.0
+50th percentile:  137.0
+60th percentile:  162.0
+70th percentile:  193.0
+80th percentile:  238.0
+90th percentile:  320.0
+95th percentile:  411.0
+99th percentile:  678.0
 
 
 
