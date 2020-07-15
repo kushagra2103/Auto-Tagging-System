@@ -108,7 +108,9 @@ Here, i have tweaked the number of features; 50-500, values and their scores as 
 
 text ="Regression line in ggplot doesn't match computed regression Im using R and created a chart using ggplot2. I then create a regression so I can make some predicitions I pass my data frame of to the predict function predict(regression, Measures) I'd expect the predictions to be the same as if I used the regression line on the chart, but they aren't the same. Why would this be the case? Is there a setting in ggplot or is my expectation incorrect?" 
 
-Using TFidf, it predicts 2 out of three tags : 'r', 'regression'      'ggplot' is missing
+Using TFidf, it predicts 2 out of three tags : 'r', 'regression'   
+
+'ggplot' is missing
 
 
 
@@ -158,6 +160,15 @@ Max pooling is applied. For every filter, we will get one value which will be th
 
 Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let say the number of neurons in dense layer is n and output matrix from previous step have shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * n.
 
+Steps: 
+
+1. First tokenize the text. In this way every document will be converted into a sequence of words identified by theie token number. To do this, we will use Tokenizer from keras.preprocessing.text. 
+
+![11](https://user-images.githubusercontent.com/36281158/87498197-d3320c80-c674-11ea-9996-af8e1369f1b3.PNG)
+
+Lenght of our vocab comes out to be 81957. 
+
+2. 
 
 
 
