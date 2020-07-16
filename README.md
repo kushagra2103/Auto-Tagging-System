@@ -136,33 +136,33 @@ Below is the structure of the CNN based deep learning structure
 
 ![8](https://user-images.githubusercontent.com/36281158/87391788-028b3f80-c5c9-11ea-95d1-a7df68cc11ba.PNG)
 
-#### How the model works ?
+### How the model works ?
 
 The sentence shown " I like this movie very much !" is passed through an embedding layer where each word gets an embedding vector of its own of size "d". The filter sizes shown are of 2,3 and 4. Filter of size "2" means that it will slide over two words and tries to capture the information in words pair. Here the CNN structure is 1D becasue we slide along the vertical direction as here the number of dimensions in word embeddings ("d") is equal to the filter width. These filter weights (10 in case of 2 * 5 filter in the figure, they are initialized) are the parameters which are obtained through loss function. Each filter is slided over the sentence; with weight multiplied over the word vectors, valued obtained is passed through an activation function and then stored in an output format which has same number of rows as input and width=1. This process is called convulation, meaning the large input size is reduced with having only important information in the form of smaller matrix. Then it is repeated across all the filter sizes and then across each output matrix (feature maps), in case of Global Max pooling the maximum value is taken from each and joined further which will act as an input (single feature vector)  to the final output softmax layer where it classifies it further into pre determined categories. Softmax is a sigmoid function which will compute the probability for each class (values ranging between 0 and 1). Here the Global max Pooling means we are extracting the most useful information, sometimes average pooling is used which means we are taking into all the information stored.  
 
-##### Strucuture of our model 
+#### Strucuture of our model 
 
-###### 1. Embedding Layer 
+##### 1. Embedding Layer 
 
 First the documents (text) in our data are being tokenized. Then the input lenght is defined. Padding is a procedure where if a document size is less than input length defined, then it is padded to get it the same length as that of defined one. For documents having the size greater than the input length , they are trimmed. Now with having the input length defined, all the sequences are fed to the embedding layer. Here we can choose what dimensions our output can have, generally it is choosen between 64, 128, 256, 512. When all the sequences are fed, word embeddings are generated. Parameters to this layer is lenght of the vocabulary (number of the unique words), output dimension and input length.
 
 Total number of trainable parameters are calculated as vocab size * output dimensions (weight matrix to get the embedding). To reduce overfitting, a dropout rate is applied having 0 learning parameter
 
-###### 2. Conv1D layer 
+##### 2. Conv1D layer 
 
-Here the filters are applied over the output from the embedding layer. The number of trainable parameters  is equal to ((filter size * output dimension * previous filter size)+1) * number of filters. Output we get is called as feature matrix.  
+Here the filters are applied over the output from the embedding layer. The number of trainable parameters  is equal to ((filter size * output dimension * previous filter size)+1) * number of filters. Output we get is called as feature matrix. Total of 300 filters are choosen, activation function choosen is "Relu"
 
-###### 3. GLobal Max Pool 1D
+##### 3. GLobal Max Pool 1D
 
 Max pooling is applied. For every filter, we will get one value which will be the maximum one among the all, so its size will be (number of filters * 1). No learning parameters are used.  
 
-###### 4. Dense Layer 
+##### 4. Dense Layer 
 
-Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let say the number of neurons in dense layer is n and output matrix from previous step have shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * n.
+Output feature matrix after globalmax pooling is fed to dense layer (having number of neurons equal to number of categories). So number of parameters to be trained here are weights ; let say the number of neurons in dense layer is n and output matrix from previous step have shape be x * 1. So number of trainalbe parameters are equal to ( x * n ) + 1 * ) n. Activation function choosen in sigmoid. 
 
 Steps: 
 
-1. First tokenize the text. In this way every document will be converted into a sequence of words identified by theie token number. To do this, we will use Tokenizer from keras.preprocessing.text. 
+1. First tokenize the text. In this way every document will be converted into a sequence of words identified by their token number. To do this, we will use Tokenizer from keras.preprocessing.text. 
 
 ![11](https://user-images.githubusercontent.com/36281158/87498197-d3320c80-c674-11ea-9996-af8e1369f1b3.PNG)
 
@@ -189,6 +189,53 @@ Percentile v/s Length
 95th percentile:  411.0
 
 99th percentile:  678.0
+
+3. Reshaping our target variable same as done in above and splitting the dataset in 80/ 20 ratio 
+
+4. We will build our model by adding the embedding layer , Conv1D layer, GlobalMax Pool 1D, Dense Layer.
+
+5. Compile the model using "adam" optimizer, loss='binary_crossentropy' and "accuracy" as a metric. 
+
+Adam : It is most widely used optimizer; it is a combination of RMS prop and momentum which are used to accelerate the gradient descent
+
+Cross Entropy Binary Loss: It computes the loss by treating every class(eg, 100 here ) as a binary classification problem
+
+6. Here is the model summary 
+
+![12](https://user-images.githubusercontent.com/36281158/87611651-3039cb00-c726-11ea-995b-7931705664da.PNG)
+
+Parametes calculation :
+
+vocab size = 81957 
+
+Embedding layer: 81957 * 128  = 10490496. So it providing the embedding matrix, here the number of the parameters are the weights in the matrix 
+
+conv1d_1 (Conv1D) : ((3* 128 * 1) + 1) * 300 = 115500 where the 3 is the filter size, 128 is the output dimension of the embedding layer, 1 is the added for the "bias" 
+
+dense_1 (Dense) : (300* 100) + 1* 100 = 30100 where 300 is the dimesnion after global max pooling, 100 is the final output layer # neurons , 1 is for bias term for every output neuron which would be classifying for 100 tags 
+
+7. Model Training :
+
+epochs=10, batch_size=512, validation_split=0.1, callbacks=callbacks
+
+Epochs: Number of the passes through the entire training set
+batch_size: 512: number of the training in examples in one batch 
+validation_split=0.1, means 10 % of the training data will be reserved for checking whether the model is overfitting or not. 
+callbacks: In one of its parameters EarlyStopping, patience is set to 3, it means if the loss computed is not decreasing after 3 iterations, it will stop 
+
+![13](https://user-images.githubusercontent.com/36281158/87613666-91b06880-c72b-11ea-849a-e0e1d7f2ee6b.PNG)
+
+![14](https://user-images.githubusercontent.com/36281158/87613740-d4724080-c72b-11ea-99ef-0e9fe9a14bc9.PNG)
+
+### Performance of the model
+
+It gives an F1 score of 0.49 which is more than that of previous models. 
+
+On the new data: 
+
+"Regression line in ggplot doesn't match computed regression Im using R and created a chart using ggplot2. I then create a regression so I can make some predicitions I pass my data frame of to the predict function predict(regression, Measures) I'd expect the predictions to be the same as if I used the regression line on the chart, but they aren't the same. Why would this be the case? Is there a setting in ggplot or is my expectation incorrect?"
+
+It predicts regression, ggplot and R as the tags which is more accurate than prevous model
 
 
 
