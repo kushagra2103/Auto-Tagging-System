@@ -238,6 +238,16 @@ On the new data:
 It predicts regression, ggplot and R as the tags which is more accurate than prevous model
 
 
+#### Suggestions on futher improving the model:
+
+1. More data
+
+2. Instead of filter size 3, we can change it or we can have three seperate layers of filter sizes 3, 4 and 5 and then combining them or we can change the number of filters for each size
+
+3. We can change the strucuture of our model by adding more Conv1D layers, or more dense layers
+
+
+
 
 
 
