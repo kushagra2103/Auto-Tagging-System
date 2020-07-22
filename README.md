@@ -15,6 +15,8 @@ In the above picture , we can see the title, description and tags. Through tags,
 
 We will be using F1 score as a Performance metric for this problem. F1 score is the harmonic mean of precision and recall values.
 
+About the dataset: It is a highly imbalanced data set, we can see that number of tags varies per example, it consists of title, text of the question and associated tags with it.
+
 #### Precision
 It is defined as ratio of true positives by (true positives + false positives)
 
