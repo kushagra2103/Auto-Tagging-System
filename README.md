@@ -126,6 +126,8 @@ Some further improvements which may improve the score as follows.
 
 4. Trying different classification algorithms for multi label classification 
 
+5. Performing grid search overparameters of the model to get the most optimized set of parameter values 
+
 
 ## Using CNN based Deep Learning model
 
@@ -245,6 +247,8 @@ It predicts regression, ggplot and R as the tags which is more accurate than pre
 2. Instead of filter size 3, we can change it or we can have three seperate layers of filter sizes 3, 4 and 5 and then combining them or we can change the number of filters for each size
 
 3. We can change the strucuture of our model by adding more Conv1D layers, or more dense layers
+
+4. Performing grid search over hyperparameters of the model to get the most optimized set of parameter values 
 
 
 
