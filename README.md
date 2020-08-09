@@ -137,7 +137,6 @@ Theory Behind the CNN based architecture for classification
 
 Below is the structure of the CNN based deep learning structure 
 
-
 ![8](https://user-images.githubusercontent.com/36281158/87391788-028b3f80-c5c9-11ea-95d1-a7df68cc11ba.PNG)
 
 ### How the model works ?
