@@ -232,13 +232,13 @@ callbacks: In one of its parameters EarlyStopping, patience is set to 3, it mean
 
 ### Performance of the model
 
-It gives an F1 score of 0.49 which is more than that of previous models. 
+It gives an F1 score of 0.51 which is more than that of previous models. 
 
 On the new data: 
 
 "Regression line in ggplot doesn't match computed regression Im using R and created a chart using ggplot2. I then create a regression so I can make some predicitions I pass my data frame of to the predict function predict(regression, Measures) I'd expect the predictions to be the same as if I used the regression line on the chart, but they aren't the same. Why would this be the case? Is there a setting in ggplot or is my expectation incorrect?"
 
-It predicts regression, ggplot and R as the tags which is more accurate than prevous model
+It predicts regression,prediction and R as the tags which is more accurate than prevous model
 
 
 #### Suggestions on futher improving the model:
